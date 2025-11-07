@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import FileUploader from "~/components/FileUploader";
 import Navbar from "~/components/Navbar";
 import { prepareInstructions } from "~/constants";
-import { convertPdfToImage } from "~/lib/pdf2image";
+import { convertPdfToImage } from "~/lib/utils";
 import { usePuterStore } from "~/lib/puter";
 import { generateUUID } from "~/utils/formatSize";
 
@@ -74,14 +74,22 @@ const Upload = () => {
 
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
+    // 🧠 ANALYZING STAGE
     setStatusText("Analyzing...");
-    const feedback = await ai.feedback(
-      uploadedFile.path,
-      prepareInstructions({ jobTitle, jobDescription })
-    );
+    console.log("🚀 Starting AI feedback...");
+
+    const feedback = await ai
+      .feedback(uploadedFile.path, prepareInstructions({ jobTitle, jobDescription }))
+      .then((res) => {
+        console.log("✅ AI feedback received:", res);
+        return res;
+      })
+      .catch((err) => {
+        console.error("❌ AI feedback failed:", err);
+        return null;
+      });
 
     if (!feedback) {
-      console.error("❌ Failed to analyze resume");
       setStatusText("Failed to analyze resume");
       setIsProcessing(false);
       return;
@@ -94,12 +102,10 @@ const Upload = () => {
 
     data.feedback = feedbackText;
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
+    setStatusText('Analysis Complete, redirecting... ');
+    console.log(data);
+    navigate(`/resume/${uuid}`);
 
-    // ✅ Log final result object
-    console.log("✅ Resume Analysis Object:", data);
-
-    setStatusText("Analysis complete!");
-    setIsProcessing(false);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

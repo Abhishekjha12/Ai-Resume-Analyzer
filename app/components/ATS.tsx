@@ -24,7 +24,7 @@ const ATS = ({
   const icon = score > 69 ? "/icons/ats-good.svg" : "/icons/ats-bad.svg";
 
   return (
-    <div className={`p-6 rounded-2xl bg-gradient-to-br ${bgClass} to-white shadow-md`}>
+    <div className={`p-6 rounded-2xl bg-linear-to-br ${bgClass} to-white shadow-md`}>
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
         <img src={icon} alt="ATS Status" className="w-8 h-8" />

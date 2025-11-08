@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ResumeCards from "~/components/ResumeCards";
 import { resumes } from "../constants";
 import Navbar from "~/components/Navbar";
@@ -6,9 +6,9 @@ import { usePuterStore } from "~/lib/puter";
 import { useNavigate } from "react-router"; // ✅ correct import
 
 export default function Home() {
-  const { auth, puterReady, init } = usePuterStore();
+  const { auth, puterReady, init,fs} = usePuterStore();
   const navigate = useNavigate();
-
+  
   // ✅ initialize Puter once after mount
   useEffect(() => {
     if (!puterReady) init();
@@ -20,7 +20,6 @@ export default function Home() {
       navigate("/auth?next=/");
     }
   }, [puterReady, auth.isAuthenticated, navigate]);
-
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-cover min-h-screen">
       <Navbar />

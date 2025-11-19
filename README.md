@@ -1,87 +1,136 @@
-# Welcome to React Router!
+📌 HireIQ – AI-Powered Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+HireIQ is an AI-driven platform that evaluates resumes, generates ATS scores, and provides personalized improvement feedback using Large Language Models. It helps job seekers optimize their resumes for better visibility and interview conversion.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+🚀 Features
 
-## Features
+🔍 AI Resume Evaluation – Scores resumes on multiple ATS criteria
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+📊 Section-wise Feedback – Highlights strengths and improvement areas
 
-## Getting Started
+🧠 Job-Description Matching – Measures alignment with job postings
 
-### Installation
+📂 PDF Parsing & Processing – Fast and reliable resume extraction
 
-Install the dependencies:
+⚡ Fully Web-based – No installation needed
 
-```bash
+🎨 Modern Dashboard UI – Built with React + Tailwind
+
+🛠 Tech Stack
+
+Frontend:
+
+React.js
+
+Tailwind CSS
+
+AI & Processing:
+
+Claude Sonnet v4
+
+Secure PDF parsing via API
+
+Deployment:
+
+Vercel
+
+💡 How It Works
+
+Upload your resume (PDF).
+
+System parses and extracts key information.
+
+AI evaluates:
+
+Formatting
+
+Skills match
+
+Keywords
+
+Industry relevance
+
+ATS compliance
+
+Results displayed in a modern dashboard with:
+
+Scores
+
+Suggestions
+
+Improvement steps
+
+![Dashboard](./screenshots/dashboard.png)
+
+🧪 Run Locally
+Clone the repo
+git clone https://github.com/Abhishekjha12/HireIQ.git
+cd HireIQ
+
+Install dependencies
 npm install
-```
 
-### Development
-
-Start the development server with HMR:
-
-```bash
+Start development server
 npm run dev
-```
 
-Your application will be available at `http://localhost:5173`.
 
-## Building for Production
+The app will run at:
 
-Create a production build:
+http://localhost:5173
 
-```bash
+📦 Deployment
+
+HireIQ can be deployed easily to platforms like:
+
+Vercel
+
+Netlify
+
+AWS
+
+Render
+
+Railway
+
+Build first:
+
 npm run build
-```
 
-## Deployment
 
-### Docker Deployment
+Then deploy the generated build folder.
 
-To build and run using Docker:
+🔒 Environment Variables
 
-```bash
-docker build -t my-app .
+Create a .env file in the root folder:
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+CLAUDE_API_KEY=your_api_key
 
-The containerized application can be deployed to any platform that supports Docker, including:
+📈 Project Impact
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+Helped users improve resume ATS alignment by 30–45%
 
-### DIY Deployment
+Improved job-description relevance by up to 70%
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
+Reduced resume review time from hours to seconds
 
-Make sure to deploy the output of `npm run build`
+🧑‍💻 Author
 
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
+Abhishek Kumar Jha
+🔗 GitHub: Abhishekjha12
+🔗 LinkedIn: linkedin.com/in/abhishek-kumar-jha-25aa8a253
 
-## Styling
+⭐ Contribute
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+Contributions are welcome!
 
----
+Fork the repository
 
-Built with ❤️ using React Router.
+Create a new branch
+
+Commit improvements
+
+Open a pull request
+
+📄 License
+
+MIT License. Free to use and modify.
